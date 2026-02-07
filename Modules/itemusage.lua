@@ -126,7 +126,10 @@ local function Item_OnClick(self,button)
 		if (self.noItem) then
 			local itemName, itemLink, itemRarity, itemLevel, itemMinLevel, itemType, itemSubType, itemStackCount, itemEquipLoc, itemTexture, itemSellPrice = GetItemInfo(self.itemID);
 			self.name:SetText(itemName or self.itemID);
-			self.name:SetTextColor(C_Item.GetItemQualityColor(itemRarity or 1));
+			do
+				local r,g,b = C_Item.GetItemQualityColor(itemRarity or 1);
+				self.name:SetTextColor(r,g,b);
+			end
 			self.icon:SetTexture(itemTexture or "Interface\\Icons\\INV_Misc_QuestionMark");
 		end
 		local link = "item:"..self.itemID;
@@ -219,7 +222,10 @@ function UpdateShownItems(self)
 			btn.noItem = (not itemName and 1 or nil);
 
 			btn.name:SetText(itemName or (id.." - Click to Reload"));
-			btn.name:SetTextColor(C_Item.GetItemQualityColor(itemRarity or 1));
+			do
+				local r,g,b = C_Item.GetItemQualityColor(itemRarity or 1);
+				btn.name:SetTextColor(r,g,b);
+			end
 			btn.count:SetText(count);
 			btn.icon:SetTexture(itemTexture or "Interface\\Icons\\INV_Misc_QuestionMark");
 			btn:Show();
