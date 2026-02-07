@@ -163,7 +163,7 @@ end
 -- http://www.wowwiki.com/Item_level#Epic_Item_Level_Chart
 -- http://elitistjerks.com/f15/t44718-item_level_mechanics/
 local function GetGemAndItemInfo()
-	local iLvlTotal, iSlotValues, iLvlMin, iLvlMax = 0, 0;
+	local iLvlTotal, iSlotValues, iLvlMin, iLvlMax = 0, 0, 0, 0;
 	local gemCount, gemRed, gemYellow, gemBlue = 0, 0, 0, 0;
 	for slotName, link in next, ex.info.Items do
 		-- Count Gem Colors -- The reason we resort to a tooltip scan, rather than using "itemSubType" is that there are no global strings for mixed gems (purple, green and orange)

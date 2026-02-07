@@ -121,6 +121,9 @@
         "PLAYER_V_PLAYER",
         "PVP",
         "MAX_ARENA_TEAMS",
-        "LibGearExamTip"
-    ]
+        "LibGearExamTip",
+        "Examiner",
+        "CUSTOM_CLASS_COLORS"
+    ],
+    "Lua.type.weakUnionCheck": true
 }
