@@ -1,3 +1,13 @@
+Examiner Changes | 2026 Feb
+------------------------------
+- fixed linking items to chat
+
+Examiner Changes | 2026 Jan
+------------------------------
+- Updated the TOC version to 120000 for Midnight pre-patch
+- changed formula and method to determine the colors of the guild banner for a correct output
+- some minor changes in declarations and methods
+
 Examiner Changes | 2020 Oct 31
 ------------------------------
 - Updated the TOC version to 90001 for the Shadowlands 9.0.1 pre-patch.

@@ -1,9 +1,11 @@
 ## Interface: 120000
-## Version: 21.01.01
+## Version: @project-version@
 ## Title: Examiner
 ## Author: Aezay (Earthen Ring EU), Toxxnorr (Mannoroth EU)
 ## Notes: Advanced Inspection Mod of Gear, Talents, Honor, Arena and Achievements.
 ## SavedVariables: Examiner_Config, Examiner_Cache
+
+## X-Curse-Project-ID: 1455823
 
 ## libs ##
 LibGearExam\LibGearExam.xml

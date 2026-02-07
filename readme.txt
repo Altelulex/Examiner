@@ -13,9 +13,9 @@ To set this up, open the Key Bindings dialog and look under "Examiner".
 
 Examiner does not use that much memory by itself, but once you start caching a lot of people, memory usage can grow quite quickly.
 
-You can always find the latest release of this addon on Curse or WoWInterface.
+You can always find the latest release of this addon on Curse.
 Post your comments, questions and suggestions for this addon on the addons comment page.
-Or in this thread: http://forums.curseforge.com/showthread.php?t=18999
+
 
 Comparing Gear
 --------------
