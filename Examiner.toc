@@ -1,4 +1,4 @@
-## Interface: 120000
+## Interface: 120001
 ## Version: @project-version@
 ## Title: Examiner
 ## Author: Aezay (Earthen Ring EU), Toxxnorr (Mannoroth EU)
