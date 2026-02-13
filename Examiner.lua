@@ -315,7 +315,7 @@ ex:SetScript("OnMouseUp",function(self,button) if (self:IsMovable()) then self:S
 ex:RegisterEvent("VARIABLES_LOADED");
 
 -- Close Button
-ex.close = CreateFrame("Button",nil,ex,"UIPanelCloseButton"):SetPoint("TOPRIGHT",-30,-8);
+ex.close = CreateFrame("Button",nil,ex,"UIPanelCloseButton"):SetPoint("TOPRIGHT",-34.5,-10.5);
 
 -- Portrait
 ex.portrait = ex:CreateTexture(nil,"BACKGROUND");
