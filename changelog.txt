@@ -2,6 +2,7 @@ Examiner Changes | 2026 Feb
 ------------------------------
 - fixed linking items to chat
 - fixed bug in color setting at itemusage
+- repositioning close button
 
 Examiner Changes | 2026 Jan
 ------------------------------
