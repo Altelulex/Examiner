@@ -395,7 +395,7 @@ function ex:SetUnitDetailString()
 	end
 	-- Race for Players / Family or Type for NPC's
 	if (info.race) then
-		uDetails[#uDetails + 1] = (info.race ~= "Not specified" and info.race or UNKNOWN);
+		uDetails[#uDetails + 1] = info.race;
 	end
 	-- Players Only: Class (+ Realm)
 	if (info.raceFixed) then
