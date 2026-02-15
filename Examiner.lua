@@ -389,27 +389,33 @@ function ex:SetUnitDetailString()
 	-- Classification (non players only, so ok to use ex.unit)
 	if (not info.raceFixed) then
 		local classification = UnitClassification(ex.unit);
-		if (CLASSIFICATION_NAMES[classification]) then
+		if (CLASSIFICATION_NAMES[classification] and type(CLASSIFICATION_NAMES[classification]) == "string") then
 			uDetails[#uDetails + 1] = "("..CLASSIFICATION_NAMES[classification]..")";
 		end
 	end
 	-- Race for Players / Family or Type for NPC's
-	if (info.race) then
+	if (info.race and type(info.race) == "string") then
 		uDetails[#uDetails + 1] = info.race;
 	end
 	-- Players Only: Class (+ Realm)
 	if (info.raceFixed) then
-		if (info.class) then
+		if (info.class and type(info.class) == "string") then
 			local color = CLASS_COLORS[info.classFixed];
 			uDetails[#uDetails + 1] = format("|cff%.2x%.2x%.2x%s|r",color.r * 255,color.g * 255,color.b * 255,info.class);
 		end
-		if (info.realm) then
+		if (info.realm and type(info.realm) == "string") then
 			uDetails[#uDetails + 1] = "of";
 			uDetails[#uDetails + 1] = info.realm;
 		end
 	end
 	-- Set Result
-	self.details:SetText(table.concat(uDetails," "));
+	local detailsStr = "";
+	for i = 1, #uDetails do
+		if (type(uDetails[i]) == "string") then
+			detailsStr = detailsStr .. (i > 1 and " " or "") .. uDetails[i];
+		end
+	end
+	self.details:SetText(detailsStr);
 	wipe(uDetails);
 end
 
@@ -429,11 +435,14 @@ function ex:SetUnitGuildString()
 		local line;
 		for i = 2, LibGearExamTip:NumLines() - 1 do
 			line = _G["LibGearExamTipTextLeft"..i]:GetText();
-			if (line:find("^"..TOOLTIP_UNIT_LEVEL:gsub("%%s",".+"))) then
-				line = _G["LibGearExamTipTextLeft"..(i + 1)]:GetText();
-				if (line ~= PVP_ENABLED) then
-					self.guild:SetText(line);
-					return;
+			if (line and type(line) == "string") then
+				local success, result = pcall(function() return line:find("^"..TOOLTIP_UNIT_LEVEL:gsub("%%s",".*")) end);
+				if (success and result) then
+					line = _G["LibGearExamTipTextLeft"..(i + 1)]:GetText();
+					if (line and type(line) == "string" and line ~= PVP_ENABLED) then
+						self.guild:SetText(line);
+						return;
+					end
 				end
 			end
 		end
