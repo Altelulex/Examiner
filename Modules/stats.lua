@@ -17,7 +17,7 @@ local entries = {};
 
 -- Stat Entry Order -- Item 0 is the header for the group
 local StatEntryOrder = {
-	{ [0] = PLAYERSTAT_BASE_STATS, "STR", "AGI", "STA", "INT", "SPI", "ARMOR", "MASTERY" },
+	{ [0] = PLAYERSTAT_BASE_STATS, "STR", "AGI", "STA", "INT", "SPI", "ARMOR", "MASTERY", "VERSATILITY", "LIFESTEAL", "AVOIDANCE" },
 	{ [0] = HEALTH.." & "..MANA, "HP", "MP", "HP5", "MP5" },
 	{ [0] = PLAYERSTAT_SPELL_COMBAT.." "..STATS_LABEL:gsub(":",""), "SPELLDMG", "ARCANEDMG", "FIREDMG", "NATUREDMG", "FROSTDMG", "SHADOWDMG", "HOLYDMG", "SPELLCRIT", "SPELLHIT", "SPELLHASTE", "SPELLPENETRATION" },
 	{ [0] = MELEE.." & "..RANGED, "AP", "RAP", "CRIT", "HIT", "HASTE", "ARMORPENETRATION", "EXPERTISE", "WPNDMG", "RANGEDDMG" },

@@ -6,6 +6,30 @@ if (GetLocale() ~= "koKR") then
 	return;
 end
 
+local function EscapePattern(text)
+	if (not text) then
+		return;
+	end
+	return text:gsub("([%(%)%.%%%+%-%*%?%[%]%^%$])","%%%1");
+end
+
+local function AddRetailSecondaryStatPatterns(list)
+	local statMap = {
+		{ STAT_CRITICAL_STRIKE or CRIT_ABBR, { "CRIT", "SPELLCRIT" } },
+		{ STAT_HASTE, { "HASTE", "SPELLHASTE" } },
+		{ STAT_MASTERY, "MASTERY" },
+		{ STAT_VERSATILITY or _G["ITEM_MOD_VERSATILITY"], "VERSATILITY" },
+		{ STAT_LIFESTEAL or _G["ITEM_MOD_LIFESTEAL"], "LIFESTEAL" },
+		{ STAT_AVOIDANCE or _G["ITEM_MOD_AVOIDANCE"], "AVOIDANCE" },
+	};
+	for _, entry in ipairs(statMap) do
+		local label = EscapePattern(entry[1]);
+		if (label) then
+			list[#list + 1] = { p = "%+(%d+) "..label, s = entry[2] };
+		end
+	end
+end
+
 LibGearExam.Patterns = {
 	--  기본 능력치  --
 	{ p = "방어도 (%d+)", s = "ARMOR" }, -- 모든 방어구에서 확인해야 함: 기본 방어도, 방어 마법부여, 방어구 키트
@@ -73,3 +97,5 @@ LibGearExam.Patterns = {
 	{ p = "황철 무기 사슬$", s = { "HASTE", "RHASTE", "SPELLHASTE" }, v = 8 }, 
 	{ p = "살아있는 강철 무기 사슬$", s = { "CRIT", "RCRIT", "SPELLCRIT" }, v = 12 },
 };
+
+AddRetailSecondaryStatPatterns(LibGearExam.Patterns);

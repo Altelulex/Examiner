@@ -12,7 +12,7 @@ LibGearExam.Patterns = {
 	{ p = "%+(%d+) St\195\164rke", s = "STR" },
 	{ p = "%+(%d+) Beweglichkeit", s = "AGI" },
 	{ p = "%+(%d+) Ausdauer", s = "STA" },
-	-- { p = "Ausdauer %+(%d+)", s = "STA" }, -- WORKAROUND: Infused Amethyst (31116) => Energieerfüllter Amethyst (Thorakon: No longer needed with WotLk 3.0.3)		
+	-- { p = "Ausdauer %+(%d+)", s = "STA" }, -- WORKAROUND: Infused Amethyst (31116) => Energieerfï¿½llter Amethyst (Thorakon: No longer needed with WotLk 3.0.3)		
 	{ p = "%+(%d+) Intelligenz", s = "INT" },
 	{ p = "%+(%d+) Willenskraft", s = "SPI" },
 	{ p = "(%d+) R\195\188stung", s = "ARMOR" }, -- Should catch all armor: Base armor, Armor enchants, Armor kits
@@ -24,7 +24,7 @@ LibGearExam.Patterns = {
 	{ p = "%+(%d+) Frostwiderstand", s = "FROSTRESIST" },
 	{ p = "%+(%d+) Schattenwiderstand", s = "SHADOWRESIST" },
 	{ p = "%+(%d+) Alle Widerstandsarten", s = { "ARCANERESIST", "FIRERESIST", "NATURERESIST", "FROSTRESIST", "SHADOWRESIST" } },
-	-- Void Sphere => Sphäre der Leere (already covered by "Alle Widerstandsarten")
+	-- Void Sphere => Sphï¿½re der Leere (already covered by "Alle Widerstandsarten")
 
 	-- Equip: Other
 	{ p = "Erh\195\182ht Eure Abh\195\164rtungswertung um (%d+)%.", s = "RESILIENCE" },
@@ -71,6 +71,12 @@ LibGearExam.Patterns = {
 
 	{ p = "Erh\195\182ht Tempowertung um (%d+)%.", s = {"SPELLHASTE", "HASTE" } },
 	{ p = "+(%d+) Tempowertung%.", s = { "SPELLHASTE", "HASTE" } },
+	{ p = "%+(%d+) Kritischer Trefferwert", s = { "SPELLCRIT", "CRIT" } },
+	{ p = "%+(%d+) Tempo", s = { "SPELLHASTE", "HASTE" } },
+	{ p = "%+(%d+) Meisterschaft", s = "MASTERY" },
+	{ p = "%+(%d+) Vielseitigkeit", s = "VERSATILITY" },
+	{ p = "%+(%d+) Lebensraub", s = "LIFESTEAL" },
+	{ p = "%+(%d+) Vermeidung", s = "AVOIDANCE" },
 
     -- Equip (Magic only)
 	{ p = "Erh\195\182ht Eure Zauberdurchschlagskraft um (%d+)%.", s = "SPELLPENETRATION" },
@@ -92,7 +98,7 @@ LibGearExam.Patterns = {
 	{ p = "alle 5 Sek%. (%d+) Mana", s = "MP5" },
 	{ p = "Alle 5 Sek%. (%d+) Mana", s = "MP5" },
 	{ p = "+(%d+) Manaregeneration%.", s = "MP5" },
-	{ p = "Erhöht Eure Manaregeneration um +(%d+)%.", s = "MP5" }, -- Thora: New pattern in WotLk
+	{ p = "Erhï¿½ht Eure Manaregeneration um +(%d+)%.", s = "MP5" }, -- Thora: New pattern in WotLk
 
 	{ p = "+(%d) Gesundheit alle 5 Sek%.", s = "HP5" },
 	{ p = "Stellt alle 5 Sek%. (%d+) Gesundheit wieder her%.", s = "HP5" },
@@ -156,7 +162,7 @@ LibGearExam.Patterns = {
 	{ p = "+(%d+) Distanzwaffenschaden%.", s = "RANGEDDMG" },
 	{ p = "^Zielfernrohr %(%+(%d+) Schaden%)$", s = "RANGEDDMG" }, -- translated by g3gg0
 
-	-- Dämonenblut (Demons's Blood) 
+	-- Dï¿½monenblut (Demons's Blood) 
 	{ p = "Verbessert Verteidigungswertung um 5, Schattenwiderstand um 10 sowie Eure normale Gesundheitsregeneration um 3%.", s = { "DEFENSE", "SHADOWRESIST", "HP5" }, v = { 5, 10, 3 } },
 	
 	-- Void Star Talisman (Warlock T5 Class Trinket)

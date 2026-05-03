@@ -2,6 +2,30 @@
 -- Pattern entries marked with an "alert" value will cause Examiner to show a warning message,
 -- telling that the pattern is thought of as no longer in use. These patterns should eventually be deleted.
 
+local function EscapePattern(text)
+	if (not text) then
+		return;
+	end
+	return text:gsub("([%(%)%.%%%+%-%*%?%[%]%^%$])","%%%1");
+end
+
+local function AddRetailSecondaryStatPatterns(list)
+	local statMap = {
+		{ STAT_CRITICAL_STRIKE or CRIT_ABBR, { "CRIT", "SPELLCRIT" } },
+		{ STAT_HASTE, { "HASTE", "SPELLHASTE" } },
+		{ STAT_MASTERY, "MASTERY" },
+		{ STAT_VERSATILITY or _G["ITEM_MOD_VERSATILITY"], "VERSATILITY" },
+		{ STAT_LIFESTEAL or _G["ITEM_MOD_LIFESTEAL"] or "Leech", "LIFESTEAL" },
+		{ STAT_AVOIDANCE or _G["ITEM_MOD_AVOIDANCE"], "AVOIDANCE" },
+	};
+	for _, entry in ipairs(statMap) do
+		local label = EscapePattern(entry[1]);
+		if (label) then
+			list[#list + 1] = { p = "%+(%d+) "..label, s = entry[2] };
+		end
+	end
+end
+
 LibGearExam.Patterns = {
 	--  Base Stats  --
 	{ p = "+?(%d+) Armor", s = "ARMOR" }, -- Should catch all armor: Base armor, Armor enchants, Armor kits
@@ -165,3 +189,5 @@ LibGearExam.Patterns = {
 	-- Void Star Talisman (Warlock T5 Class Trinket)
 	{ p = "Increases your pet's resistances by 130 and increases your spell power by 48%.", s = "SPELLDMG", v = 48, alert = 2 },
 };
+
+AddRetailSecondaryStatPatterns(LibGearExam.Patterns);

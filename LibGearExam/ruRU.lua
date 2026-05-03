@@ -7,6 +7,30 @@ if (GetLocale() ~= "ruRU") then
 	return;
 end
 
+local function EscapePattern(text)
+	if (not text) then
+		return;
+	end
+	return text:gsub("([%(%)%.%%%+%-%*%?%[%]%^%$])","%%%1");
+end
+
+local function AddRetailSecondaryStatPatterns(list)
+	local statMap = {
+		{ STAT_CRITICAL_STRIKE or CRIT_ABBR, { "CRIT", "SPELLCRIT" } },
+		{ STAT_HASTE, { "HASTE", "SPELLHASTE" } },
+		{ STAT_MASTERY, "MASTERY" },
+		{ STAT_VERSATILITY or _G["ITEM_MOD_VERSATILITY"], "VERSATILITY" },
+		{ STAT_LIFESTEAL or _G["ITEM_MOD_LIFESTEAL"], "LIFESTEAL" },
+		{ STAT_AVOIDANCE or _G["ITEM_MOD_AVOIDANCE"], "AVOIDANCE" },
+	};
+	for _, entry in ipairs(statMap) do
+		local label = EscapePattern(entry[1]);
+		if (label) then
+			list[#list + 1] = { p = "%+(%d+) "..label, s = entry[2] };
+		end
+	end
+end
+
 LibGearExam.Patterns = {
 	-- Base Stats --
 	{ p = "%+(%d+) к силе$", s = "STR" },
@@ -160,3 +184,5 @@ LibGearExam.Patterns = {
 	-- Future Patterns (Disabled)
 	--{ p = "When struck in combat inflicts (%d+) .+ damage to the attacker.", s = "DMGSHIELD" },
 };
+
+AddRetailSecondaryStatPatterns(LibGearExam.Patterns);
